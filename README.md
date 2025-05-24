@@ -1,2 +1,2 @@
-API rest feita com Java e Spring Boot de gerenciamento de estoque.
+API rest  de gerenciamento de estoque feita com Java e Spring Boot.
 haverá alterações.
