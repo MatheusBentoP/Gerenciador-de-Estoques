@@ -1,5 +1,6 @@
 package br.com.GerenciaEstoque.controller;
 
+import br.com.GerenciaEstoque.dto.ProdutoDto;
 import br.com.GerenciaEstoque.model.Produto;
 import br.com.GerenciaEstoque.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,9 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Produto> cadastrarProduto(@RequestBody Produto produto){
-        Produto newProduto = produtoService.salvarProduto(produto);
-        return new ResponseEntity<>(newProduto, HttpStatus.CREATED);
+    public ResponseEntity<Produto> cadastrarProduto(@RequestBody ProdutoDto dto){
+        Produto newProduto = produtoService.salvarProduto(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newProduto);
 
     }
 

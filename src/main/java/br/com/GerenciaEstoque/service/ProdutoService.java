@@ -1,5 +1,6 @@
 package br.com.GerenciaEstoque.service;
 
+import br.com.GerenciaEstoque.dto.ProdutoDto;
 import br.com.GerenciaEstoque.model.Produto;
 import br.com.GerenciaEstoque.repository.IProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class ProdutoService{
         this.repository = repository;
     }
 
-    public Produto salvarProduto(Produto produto){
+    public Produto salvarProduto(ProdutoDto dto){
+        Produto produto = new Produto();
         return repository.save(produto);
     }
 
@@ -31,9 +33,6 @@ public class ProdutoService{
     }
 
 
-
-
-
     public  Produto updateProduto(Produto produto) {
         repository.save(produto);
         return produto;
@@ -44,6 +43,8 @@ public class ProdutoService{
     public void deletarProdutoById(Long id){
         repository.deleteById(id);
     }
+
+
 
 
 

@@ -1,83 +1,35 @@
 package br.com.GerenciaEstoque.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "Produto")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+
 public class Produto {
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-     @Column(unique = true, nullable = false)
+
+    @Column(unique = true, nullable = false)
     private String nome;
     private String descricao;
     private Integer quantidade;
 
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    private LocalDate data;
+
+
     @Enumerated(EnumType.STRING)
     private TiposProduto tiposProduto;
 
-    public Produto() {
-    }
-
-    public Produto(Long id, String nome, String descricao, Integer quantidade, TiposProduto tiposProduto) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.quantidade = quantidade;
-        this.tiposProduto = tiposProduto;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public TiposProduto getTiposProduto() {
-        return tiposProduto;
-    }
-
-    public void setTiposProduto(TiposProduto tiposProduto) {
-        this.tiposProduto = tiposProduto;
-    }
-
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", quantidade=" + quantidade +
-                ", tiposProduto=" + tiposProduto +
-                '}';
-    }
-
 }
-
