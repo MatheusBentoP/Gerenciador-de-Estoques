@@ -8,20 +8,20 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "Saída")
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+//@Entity
+//@Table(name = "Saída")
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
 public class SaidaProduto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_saida;
-
-    private Produto produto;
-
-    private Integer quantidade_saida;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate data_saida;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id_saida;
+//
+//    private Produto produto;
+//
+//    private Integer quantidade_saida;
+//
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+//    private LocalDate data_saida;
 }

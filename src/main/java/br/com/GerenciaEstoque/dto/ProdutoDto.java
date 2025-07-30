@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class ProdutoDto {
     private String nome;
     private Integer quantidade;
+    private String descricao;
 
     private TiposProduto tiposProduto;
 }
